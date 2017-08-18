@@ -13,9 +13,10 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res){
     res.render('home');
 }); 
+var fortune = require('./lib/fortune.js');
 
-app.get('/about', function(req, res){          
-     res.render('about');
+app.get('/about', function(req, res){ 
+   res.render("about",{fortune:fortune.getFortune()});
 });  
 
 app.use(function(req,res){
