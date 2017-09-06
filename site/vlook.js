@@ -8,7 +8,7 @@ app.set('view engine', 'handlebars');
 app.set('port',process.env.PORT||3000);
 
 app.use(express.static(__dirname + '/public'));
-
+app.use(require('body-parser')())
 
 app.get('/', function(req, res){
     res.render('home');
@@ -18,6 +18,9 @@ var fortune = require('./lib/fortune.js');
 app.get('/about', function(req, res){ 
    res.render("about",{fortune:fortune.getFortune()});
 });  
+app.get('/reg', function(req, res){ 
+    res.render("reg");
+ });  
 
 app.use(function(req,res){
      res.status(404);
