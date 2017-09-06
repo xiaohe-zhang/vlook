@@ -13,6 +13,9 @@ app.use(require('body-parser')())
 app.get('/', function(req, res){
     res.render('home');
 }); 
+// app.get('/home', function(req, res){
+//     res.render('home');
+// });
 var fortune = require('./lib/fortune.js');
 
 app.get('/about', function(req, res){ 
